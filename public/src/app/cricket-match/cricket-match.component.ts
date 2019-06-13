@@ -17,7 +17,7 @@ export class CricketMatchComponent implements OnInit {
     dtTrigger: Subject<any> = new Subject();
     groupID;
     transID;
-    model: {} = {team1: '', team2: ''};
+    model = {team1: '', team2: ''};
 
     countries: Array<any> = ['India', 'Pakistan', 'England', 'New Zealand', 'Australia', 'Sri Lanka', 'West Indies', 'Bangladesh', 'South Africa', 'Afghanistan'];
 
@@ -80,20 +80,23 @@ export class CricketMatchComponent implements OnInit {
                 (result: { data: Array<any>, msg: any, status: number }) => {
                     if (result.status === 1) {
                         this.weatherData = result.data;
-                        const currently = this.weatherData['currently'];
-                        const beliver = {
-                            precipType: currently.precipType,
-                            precipIntensity: currently.precipIntensity,
-                            precipProbability: currently.precipProbability,
-                            summary: currently.summary,
-                        };
-                        console.log(beliver);
-
+                        debugger;
+                        if (typeof this.weatherData['currently'] !== 'undefined') {
+                            const currently = this.weatherData['currently'];
+                            const beliver = {
+                                precipType: currently.precipType,
+                                precipIntensity: currently.precipIntensity,
+                                precipProbability: currently.precipProbability,
+                                summary: currently.summary,
+                            };
+                            console.log(beliver);
+                        }
                     } else {
                         console.log(result.msg);
                     }
                 },
                 (error) => {
+                    console.log(error)
                 }
             );
     }

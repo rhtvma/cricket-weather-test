@@ -72,8 +72,8 @@
                                 </div>
                             </td>
                             <td>
-                                <div >
-<!--                                <div *ngIf="!wcRows.match_info.status">-->
+                                <div>
+                                    <!--                                <div *ngIf="!wcRows.match_info.status">-->
                                     <button type="button" class="btn btn-info"
                                             (click)="verifyWeather(wcRows)">
                                         Verify Weather
@@ -88,11 +88,14 @@
         </div>
     </div>
 </div>
-
 <!--{{wcData[0]|json}}-->
+<br/>
+<br/>
+<br/>
+<br/>
+<div *ngIf="weatherData">
+    {{weatherData?.currently |json}}
+</div>
 
-<br/>
-<br/>
-<br/>
-<br/>
-{{weatherData.currently |json}}
+
+<!--values?.listArray is equivalent to values != null ? values.listArray: null-->

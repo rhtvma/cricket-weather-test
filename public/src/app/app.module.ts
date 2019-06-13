@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {NgModule} from '@angular/core'
+import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AppComponent} from './app.component';
 import {RouterModule, Routes} from "@angular/router";
@@ -32,7 +32,10 @@ const routes: Routes = [
         NgbModule,
         RouterModule.forRoot(routes),
     ],
-    providers: [HttpService],
+    providers: [HttpService, {
+        provide: LocationStrategy,
+        useClass: HashLocationStrategy
+    }],
     bootstrap: [AppComponent]
 })
 export class AppModule {
