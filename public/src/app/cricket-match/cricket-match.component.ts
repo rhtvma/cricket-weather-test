@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpService} from "../shared/http.service";
 import {Subject} from 'rxjs';
+import {ToastrService} from 'ngx-toastr';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -15,13 +16,12 @@ export class CricketMatchComponent implements OnInit {
     weatherData: Array<any> = [];
     wcData: Array<any> = [];
     dtTrigger: Subject<any> = new Subject();
-    groupID;
-    transID;
+    rainProbability: number = 0;
     model = {team1: '', team2: ''};
 
     countries: Array<any> = ['India', 'Pakistan', 'England', 'New Zealand', 'Australia', 'Sri Lanka', 'West Indies', 'Bangladesh', 'South Africa', 'Afghanistan'];
 
-    constructor(private _httpService: HttpService) {
+    constructor(private _httpService: HttpService, private _toastr: ToastrService) {
     }
 
     ngOnInit(): void {
@@ -74,15 +74,32 @@ export class CricketMatchComponent implements OnInit {
             long: args.venue.long,
             location: args.venue.location,
             name: args.venue.name
+        };
+        let team1 = this.model.team1, team2 = this.model.team2;
+        if (team1.length < 1 || team2.length < 1) {
+            team1 = args.teams.team1.name;
+            team2 = args.teams.team2.name;
         }
         this._httpService.post(`/api/eng-weather`, body)
             .subscribe(
                 (result: { data: Array<any>, msg: any, status: number }) => {
                     if (result.status === 1) {
                         this.weatherData = result.data;
-                        debugger;
                         if (typeof this.weatherData['currently'] !== 'undefined') {
                             const currently = this.weatherData['currently'];
+                            if (typeof currently.precipProbability === 'undefined') {
+                                this.rainProbability = 0;
+                            } else {
+                                this.rainProbability = currently.precipProbability;
+                            }
+
+                            if (this.rainProbability < 0.2) {
+                                this._toastr.info(`Summary : ${currently.summary}`, `${team1} VS ${team2}`);
+                                this._toastr.success('Weather conditions are good, you can buy tickets', `${team1} VS ${team2}`);
+                            } else {
+                                this._toastr.info(`Summary : ${currently.summary}`, `${team1} VS ${team2}`);
+                                this._toastr.error(`Weather conditions are not good, Don't buy tickets`, `${team1} VS ${team2}`);
+                            }
                             const beliver = {
                                 precipType: currently.precipType,
                                 precipIntensity: currently.precipIntensity,
@@ -100,5 +117,4 @@ export class CricketMatchComponent implements OnInit {
                 }
             );
     }
-
 }

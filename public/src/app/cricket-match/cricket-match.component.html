@@ -1,101 +1,82 @@
-<div class="row admin-dash-overflow">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header">
-                <div class="row">
-                    <div class="col-sm-12 text-center">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="input-group">
-                                    <label class="left-float">Team-1</label>
-                                    <!--                                    <input type="text"-->
-                                    <!--                                           name="workoutName"-->
-                                    <!--                                           >-->
-                                    <select [(ngModel)]="model.team1" (change)="onChange($event.target.value,2)">
-                                        <option [value]="country"
-                                                *ngFor="let country of countries">{{country}}</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="input-group">
-                                    <label class="left-float">Team-2</label>
-                                    <select [(ngModel)]="model.team2" (change)="onChange($event.target.value,2)">
-                                        <option [value]="country"
-                                                *ngFor="let country of countries">{{country}}</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <button type="button" class="btn btn-info"
-                                        (click)="onFilter()">
-                                    Filter Matches
-                                </button>
-                            </div>
-                            {{model|json}}
-
-                        </div>
-                        <div style="clear: both;"></div>
-                    </div>
-                    <div class="col-sm-2">
-                    </div>
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="input-group">
+                    <label class="left-float">Team-1</label>
+                    <select [(ngModel)]="model.team1" (change)="onChange($event.target.value,2)">
+                        <option [value]="country"
+                                *ngFor="let country of countries">{{country}}</option>
+                    </select>
                 </div>
             </div>
-            <br/>
-            <br/>
-            <br/>
-            <div class="card-body" style=" padding-bottom: 30px;">
-                <div class="card-block">
-                    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Date</th>
-                            <th>Team 1</th>
-                            <th>Team 2</th>
-                            <th>Status/Result</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr *ngFor="let wcRows of wcData ; let i = index;">
-                            <td>{{i + 1}}</td>
-                            <td>{{ wcRows.teams.team1.name }}</td>
-                            <td>{{ wcRows.date | date: 'MMM d, y, h:mm:ss a' }}</td>
-                            <td>{{ wcRows.teams.team2.name }}</td>
-                            <td>
-                                <div *ngIf="wcRows.match_info.status">
-                                    {{wcRows.match_info.status}}
-                                </div>
-                                <div *ngIf="!wcRows.match_info.status">
-                                    <span class="badge badge-secondary">To be played</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    <!--                                <div *ngIf="!wcRows.match_info.status">-->
-                                    <button type="button" class="btn btn-info"
-                                            (click)="verifyWeather(wcRows)">
-                                        Verify Weather
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <label class="left-float">Team-2</label>
+                    <select [(ngModel)]="model.team2" (change)="onChange($event.target.value,2)">
+                        <option [value]="country"
+                                *ngFor="let country of countries">{{country}}</option>
+                    </select>
                 </div>
             </div>
+            <div class="col-md-4">
+                <button
+                        [disabled]="!model.team1 && !model.team2"
+                        type="button" class="btn btn-info"
+                        (click)="onFilter()">
+                    Filter Matches
+                </button>
+            </div>
+            <!--                            {{model|json}}-->
         </div>
+    </div>
+</div>
+<br/>
+<div class="card-body" style=" padding-bottom: 30px;">
+    <div class="card-block">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Date</th>
+                <th>Team 1</th>
+                <th>Team 2</th>
+                <th>Status/Result</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let wcRows of wcData ; let i = index;">
+                <td>{{i + 1}}</td>
+                <td>{{ wcRows.teams.team1.name }}</td>
+                <td>{{ wcRows.date | date: 'MMM d, y, h:mm:ss a' }}</td>
+                <td>{{ wcRows.teams.team2.name }}</td>
+                <td>
+                    <div *ngIf="wcRows.match_info.status">
+                        {{wcRows.match_info.status}}
+                    </div>
+                    <div *ngIf="!wcRows.match_info.status">
+                        <span class="badge badge-secondary">To be played</span>
+                    </div>
+                </td>
+                <td>
+                    <div>
+<!--                        <div *ngIf="!wcRows.match_info.status">-->
+                            <button type="button" class="btn btn-info"
+                                    (click)="verifyWeather(wcRows)">
+                                Verify Weather
+                            </button>
+<!--                        </div>-->
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 <!--{{wcData[0]|json}}-->
 <br/>
 <br/>
-<br/>
-<br/>
-<div *ngIf="weatherData">
-    {{weatherData?.currently |json}}
-</div>
-
-
-<!--values?.listArray is equivalent to values != null ? values.listArray: null-->
+<!--<div *ngIf="weatherData">-->
+<!--    {{weatherData?.currently |json}}-->
+<!--</div>-->

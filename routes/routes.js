@@ -1,12 +1,22 @@
-var express = require('express');
-var router = express.Router();
-var cricket = require("../services/cricket");
-var weather = require("../services/weather");
+const express = require('express'),
+    moment = require('moment-timezone'),
+    router = express.Router();
+let cricket = require("../services/cricket"),
+    weather = require("../services/weather");
+
+function toTimeZone(time, zone) {
+    var format = 'YYYY/MM/DD HH:mm:ss ZZ';
+    return moment(time, format).tz(zone).format(format);
+}
+
 
 /* GET ALL WC matches listing. */
 router.post('/eng-weather', function (req, res, next) {
     const {date, lat, long, location, name} = req.body;
-    weather.getMatchWeatherDetails(lat, long, date, (err, result) => {
+
+    const convertedDate = toTimeZone(date, "Europe/London")
+
+    weather.getMatchWeatherDetails(lat, long, convertedDate, (err, result) => {
         return res.status(200)
             .json({
                 status: 1,

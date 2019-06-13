@@ -1,14 +1,11 @@
 const rp = require('request-promise');
 const cheerio = require('cheerio');
 var Promise = require('bluebird');
-const _ = require('lodash')
-// https://www.npmjs.com/package/dark-skyconst DarkSky = require('dark-sky')
-
+const _ = require('lodash');
 const DarkSky = require('dark-sky')
 const darksky = new DarkSky('837ebf10d4887b46f40f50da30e2d1dd');
 
 const getMatchWeatherDetails = (lat, long, date, cb) => {
-    // optional: date, string'YYYY-MM-DD'.
     darksky
         .latitude(lat)
         .longitude(long)
