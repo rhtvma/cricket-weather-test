@@ -6,5 +6,6 @@ import {Component} from '@angular/core';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    title = 'Cricket Match Weather Prediction';
+    title = 'Cricket World Cup 2019';
+    subtitle = '(England)';
 }

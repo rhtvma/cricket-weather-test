@@ -1,82 +1,100 @@
-<div class="card">
-    <div class="card-header">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="input-group">
-                    <label class="left-float">Team-1</label>
-                    <select [(ngModel)]="model.team1" (change)="onChange($event.target.value,2)">
-                        <option [value]="country"
-                                *ngFor="let country of countries">{{country}}</option>
-                    </select>
-                </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="input-group">
+                <label class="left-float">Team-1</label>
+                <select [(ngModel)]="model.team1" (change)="onChange($event.target.value,1)">
+                    <option value="">Select Team</option>
+                    <option [value]="country"
+                            *ngFor="let country of team1Co">
+                        {{country}}</option>
+                </select>
             </div>
-            <div class="col-md-4">
-                <div class="input-group">
-                    <label class="left-float">Team-2</label>
-                    <select [(ngModel)]="model.team2" (change)="onChange($event.target.value,2)">
-                        <option [value]="country"
-                                *ngFor="let country of countries">{{country}}</option>
-                    </select>
-                </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group">
+                <label class="left-float">Team-2</label>
+                <select [(ngModel)]="model.team2" (change)="onChange($event.target.value,2)">
+                    <option value="">Select Team</option>
+                    <option [value]="country"
+                            *ngFor="let country of team2Co">
+                        {{country}}</option>
+                </select>
             </div>
-            <div class="col-md-4">
-                <button
-                        [disabled]="!model.team1 && !model.team2"
-                        type="button" class="btn btn-info"
-                        (click)="onFilter()">
-                    Filter Matches
-                </button>
-            </div>
-            <!--                            {{model|json}}-->
+        </div>
+        <div class="col-md-4">
+            <button
+                    [disabled]="!model.team1 && !model.team2"
+                    type="button" class="btn btn-info"
+                    (click)="onFilter()">
+                Filter Matches
+            </button>
+        </div>
+        <!--                            {{model|json}}-->
+    </div>
+    <br/>
+    <div class="card-body" style=" padding-bottom: 30px;">
+        <div class="card-block">
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th>Team 1</th>
+                    <th>Team 2</th>
+                    <th>Status/Result</th>
+                    <th>Tickets</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let wcRows of wcData ; let i = index;">
+                    <td>{{i + 1}}</td>
+                    <td>{{ wcRows.date | date: 'MMM d, y, h:mm:ss a' }}</td>
+                    <td>{{ wcRows.teams.team1.name }}</td>
+                    <td>{{ wcRows.teams.team2.name }}</td>
+                    <td>
+                        <div *ngIf="wcRows.match_info.status">
+                            {{wcRows.match_info.status}}
+                        </div>
+                        <div *ngIf="!wcRows.match_info.status">
+                            <span class="badge badge-secondary">To be played</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="wcRows.match_info.status">
+                            Match over<br/>
+                            Ticket window closed
+                        </div>
+                        <div *ngIf="!wcRows.match_info.status">
+                            <span class="badge badge-secondary">Tickets Available</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <div *ngIf="!wcRows.match_info.status">
+                                <button type="button" class="btn btn-info"
+                                        (click)="verifyWeather(wcRows)">
+                                    Verify Weather & Purchase Tickets
+                                </button>
+                            </div>
+                            <div *ngIf="wcRows.match_info.status">
+                                <button type="button" class="btn btn-info"
+                                        (click)="verifyWeather(wcRows)">
+                                    Weather History
+                                </button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
+    <!--{{wcData[0]|json}}-->
+    <br/>
+    <br/>
+    <!--<div *ngIf="weatherData">-->
+    <!--    {{weatherData?.currently |json}}-->
+    <!--</div>-->
 </div>
-<br/>
-<div class="card-body" style=" padding-bottom: 30px;">
-    <div class="card-block">
-        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Date</th>
-                <th>Team 1</th>
-                <th>Team 2</th>
-                <th>Status/Result</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let wcRows of wcData ; let i = index;">
-                <td>{{i + 1}}</td>
-                <td>{{ wcRows.teams.team1.name }}</td>
-                <td>{{ wcRows.date | date: 'MMM d, y, h:mm:ss a' }}</td>
-                <td>{{ wcRows.teams.team2.name }}</td>
-                <td>
-                    <div *ngIf="wcRows.match_info.status">
-                        {{wcRows.match_info.status}}
-                    </div>
-                    <div *ngIf="!wcRows.match_info.status">
-                        <span class="badge badge-secondary">To be played</span>
-                    </div>
-                </td>
-                <td>
-                    <div>
-<!--                        <div *ngIf="!wcRows.match_info.status">-->
-                            <button type="button" class="btn btn-info"
-                                    (click)="verifyWeather(wcRows)">
-                                Verify Weather
-                            </button>
-<!--                        </div>-->
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-<!--{{wcData[0]|json}}-->
-<br/>
-<br/>
-<!--<div *ngIf="weatherData">-->
-<!--    {{weatherData?.currently |json}}-->
-<!--</div>-->
