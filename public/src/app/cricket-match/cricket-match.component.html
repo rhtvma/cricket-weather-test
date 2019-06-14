@@ -12,7 +12,7 @@
                             *ngFor="let country of team1Co">
                         {{country}}</option>
                 </select>
-                <label for="team2">Second Second Team: </label>
+                <label for="team2">Second Team: </label>
                 <select name="team2"
                         class="mar-text"
                         [(ngModel)]="model.team2"
@@ -29,10 +29,10 @@
                     Filter Matches
                 </button>
 
-                <button class="btn btn-primary mar-text"
+                <button class="btn btn-primary mar-refresh"
                         type="button"
                         (click)="reset()">
-                    Reset
+                    Refresh
                 </button>
             </form>
         </div>

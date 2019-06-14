@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3b55480-6d80-4c0f-96ea-a29732e5be96" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/3rdpartylicenses.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/4.d20d9213fb3201ccdc87.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/main.866822d1e18553478fef.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/polyfills.d64817aaf614d4221ef9.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/runtime.13a94ea86c1f77c3ed5e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/scripts.40017fedad433f6baec1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/styles.fbf99831e50f78bc30cf.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/4.109e3d8540ccbc543073.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/runtime.845d6884c7bbbb3970ee.js" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,8 +44,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/src/app/cricket-match/cricket-match.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="52">
-              <caret line="19" column="51" selection-start-line="19" selection-start-column="51" selection-end-line="19" selection-end-column="51" />
+            <state relative-caret-position="28">
+              <caret line="31" column="58" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="58" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
               </folding>
@@ -61,7 +53,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
@@ -73,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/src/app/cricket-match/cricket-match.component.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="1" selection-start-column="1" selection-end-column="9" />
+            <state relative-caret-position="85">
+              <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -181,11 +173,11 @@
         <option value="$PROJECT_DIR$/public/src/app/app.component.ts" />
         <option value="$PROJECT_DIR$/public/src/app/app.component.html" />
         <option value="$PROJECT_DIR$/public/src/styles.css" />
-        <option value="$PROJECT_DIR$/public/src/app/cricket-match/cricket-match.component.css" />
         <option value="$PROJECT_DIR$/public/src/app/cricket-match/cricket-match.component.ts" />
-        <option value="$PROJECT_DIR$/public/src/app/cricket-match/cricket-match.component.html" />
         <option value="$PROJECT_DIR$/public/README.md" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/public/src/app/cricket-match/cricket-match.component.html" />
+        <option value="$PROJECT_DIR$/public/src/app/cricket-match/cricket-match.component.css" />
       </list>
     </option>
   </component>
@@ -292,12 +284,12 @@
       <workItem from="1560402432183" duration="10110000" />
       <workItem from="1560421172963" duration="610000" />
       <workItem from="1560444493095" duration="7739000" />
-      <workItem from="1560491296891" duration="4830000" />
+      <workItem from="1560491296891" duration="5250000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58427000" />
+    <option name="totallyTimeSpent" value="58847000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -326,8 +318,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.4334342" side_tool="true" weight="0.4832776" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.494705" visible="true" weight="0.31772575" />
-      <window_info anchor="bottom" id="Debug" order="11" sideWeight="0.5665658" weight="0.638796" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.494705" visible="true" weight="0.27257526" />
+      <window_info anchor="bottom" id="Debug" order="11" sideWeight="0.5665658" weight="0.6605351" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.4464883" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -522,13 +514,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/app/cricket-match/cricket-match.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="1" selection-start-column="1" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/src/app/cricket-match/cricket-match.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="376">
@@ -546,16 +531,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/app/cricket-match/cricket-match.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="19" column="51" selection-start-line="19" selection-start-column="51" selection-end-line="19" selection-end-column="51" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -563,6 +538,23 @@
             <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/app/cricket-match/cricket-match.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="31" column="58" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="58" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/src/app/cricket-match/cricket-match.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
         </state>
       </provider>
     </entry>
