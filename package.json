@@ -2,11 +2,10 @@
   "name": "myapp",
   "version": "0.0.0",
   "private": true,
-  "main":app.js,
+  "main": "app.js",
   "scripts": {
-     "install" : "npm install",
-     "postinstall" : "npm install package.json",
-     "start": "node app.js"
+    "prestart": "npm install",
+    "start": "node app.js"
   },
   "dependencies": {
     "angular-datatables": "^7.0.0",
