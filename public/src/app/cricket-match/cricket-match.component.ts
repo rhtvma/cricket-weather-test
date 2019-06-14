@@ -59,11 +59,16 @@ export class CricketMatchComponent implements AfterViewInit, OnDestroy, OnInit {
             autoWidth: true,
             // order: [[3, 'asc']]
         };
-        this.getRecentSiteList();
+        this.getAllWCMatches();
     }
 
 
-    getRecentSiteList() {
+    reset() {
+        this.getAllWCMatches();
+        this.onChange(null, 0);
+    }
+
+    getAllWCMatches() {
         this._httpService.get(`/api/wc-matches`)
             .subscribe(
                 (result: { data: Array<any>, msg: any, status: number }) => {
@@ -87,10 +92,15 @@ export class CricketMatchComponent implements AfterViewInit, OnDestroy, OnInit {
             this.team1Co = JSON.parse(JSON.stringify(this.countries));
             let index = JSON.parse(JSON.stringify(this.countries)).indexOf(country);
             this.team1Co.splice(index, 1);
-        } else {
+        } else if (team === 1) {
             this.team2Co = JSON.parse(JSON.stringify(this.countries));
             let index = JSON.parse(JSON.stringify(this.countries)).indexOf(country);
             this.team2Co.splice(index, 1)
+        } else {
+            this.team1Co = JSON.parse(JSON.stringify(this.countries));
+            this.team2Co = JSON.parse(JSON.stringify(this.countries));
+            this.model.team1 = '';
+            this.model.team2 = '';
         }
     }
 

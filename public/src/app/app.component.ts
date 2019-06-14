@@ -7,5 +7,5 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
     title = 'Cricket World Cup 2019';
-    subtitle = '(England)';
+    subtitle = '(England and Wales)';
 }
