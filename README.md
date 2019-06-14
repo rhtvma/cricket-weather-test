@@ -9,4 +9,4 @@ Run `npm start ` for a server. Navigate to `http://localhost:3019/`.
 
 ## Note
  
-   In case `http://localhost:3019/` does'nt work, then please use same link in ` Incognito Mode`
+   In case `http://localhost:3019/` doesn't work, then please use same link in ` Incognito Mode`
